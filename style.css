@@ -1,0 +1,94 @@
+.title {
+    font-size: 2em;
+
+}
+h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+head {
+    margin: 0;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    color: yellow;
+}
+
+nav {
+    text-align: center;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 10%;
+    margin-left: 5%;
+}
+
+.game_logo {
+    width: 13%;
+    height: 20%;
+    margin-top: 15%;
+    margin-left: 1.8%;
+    border: solid white 1px;
+}
+
+.header_container {
+    margin-bottom: 7%;
+
+}
+
+.stats_container {
+    color: yellow;
+    border: solid yellow 0.3em;
+    width: 10%;
+    height: 50%;
+    float: left;
+    text-align: center;
+    margin-left: 3%;
+    margin-top: 10.3%;
+    Padding-top: 3%;
+    padding-bottom: 5%;
+}
+
+.main_container {
+    background-image: url(https://s-media-cache-ak0.pinimg.com/originals/49/e5/3a/49e53ac6960279f387be3689a075e94e.jpg);
+    width: 100vw;
+    height: 150vh;
+
+}
+
+.main_content {
+
+}
+
+.card {
+    display: inline-block;
+    width: 150px;
+    height: 200px;
+    position: relative;
+    margin: 1%;
+    overflow: hidden;
+    border-radius: 10px;
+    border: solid white 1px;
+}
+
+img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 110%;
+    border-radius: 10px;
+
+}
+
+#game-area {
+    float: right;
+    width: 85%;
+
+}
