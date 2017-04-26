@@ -29,16 +29,21 @@ function card_clicked() {
         return;
     }
     $(this).find('.back').hide();
+    // $(this).find('.back').css({'transform' : "perspective(600px) rotateY(180deg)"});
+    // $(this).find('.face').css({'transform' : "perspective(600px) rotateY(0deg)"});
+
     $(this).off('click');
 // check to find out if its the first card
     if (first_card_clicked === null) {
         first_card_clicked = this;
+        console.log('first card clicked');
         //turns off first card click so you cant match same card
         return;
     }
 // Its the second card
     else {
         second_card_clicked = this;
+        console.log('second card clicked');
         attempts++;
         display_stats();
         var first_card = $(first_card_clicked).find('img').attr('src');
@@ -49,13 +54,19 @@ function card_clicked() {
         if (first_card === second_card) {
             match_counter++;
             display_stats();
+            playDarthAxe();
+            //document.getElementById('darthAxe').play();
             console.log('card 1: ', first_card_clicked, 'card 2: ', second_card_clicked);
             console.log('first_card : ', first_card, 'second_card : ',second_card);
             first_card_clicked = null;
             second_card_clicked = null;
 
             if (match_counter == total_possible_matches) {
+                var theme_song = new Audio('sounds/star-wars-theme-song.mp3');
+                theme_song.play();
+                //theme_song.volume = .5;
                 $('#game-area').append($('<h1>').html("YOU WIN!!!").css("color", "white"));
+
             }
         }
         //cards don't match
@@ -65,6 +76,10 @@ function card_clicked() {
             resetCardsAfterNoMatch();
         }
     }
+}
+
+function playDarthAxe(){
+    darthAxe.play();
 }
 
 function resetCardsAfterNoMatch() {
@@ -108,11 +123,13 @@ function reset_button(){
     reset_stats();
     display_stats();
     $('.back').show();
-    $(".card").click(card_clicked);
+    $('.card').click(card_clicked);
     board_clickable = true;
+    var vaderComeBack = new Audio('sounds/swvader01.mp3');
+    vaderComeBack.play();
 }
 
-//todo work out bugs and stat functions
+//todo add Win window, make cards randomize, and add animations*
 
 
 
