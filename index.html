@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory Match</title>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="main_container">
+    <div class="head_div">
+        <header class="header_container">
+            <div class="title">
+            <!--<h1>Guitar Wars</h1>-->
+                </div>
+            <img class="game_logo" src="http://www.thevillains.com.au/images/tyu.jpg" alt="Game Logo">
+            <nav>
+                <ul>
+                    <li>Settings</li>
+                    <li>About</li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <div class="main_content">
+    <div class="stats_container">
+        <h1>Stats:</h1>
+        <div class="games_played">
+            <h4 class="label">Games played:</h4>
+            <div class="value"></div>
+        </div>
+        <br>
+        <div class="match_counter">
+            <h4 class="label">Matches:</h4>
+            <div class="value"></div>
+        </div>
+        <br>
+        <div class="attempts">
+            <h4 class="label">Attempts:</h4>
+            <div class="value"></div>
+        </div>
+        <br>
+        <div class="accuracy">
+            <h4 class="label">Accuracy:</h4>
+            <div class="value"></div>
+        </div>
+        <br>
+        <br>
+        <button class="reset">Reset Game</button>
+    </div>
+    <div id="game-area">
+        <div class="card">
+            <div class="front"><img src="images/darth_axe_shred.jpg" alt="Darth Vader on the axe"><audio id="darthAxe" src="sounds/darthvader_taughtyouwell.wav"></audio></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="images/darth_axe_shred.jpg" alt="Darth Vader on the axe"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="images/storm_trooper_shred.jpg" alt="Storm trooper shredding"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="images/storm_trooper_shred.jpg" alt="Storm trooper shredding"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+         <div class="card">
+            <div class="front"><img src="images/yoda_shred.jpg" alt="Yoda holding bass"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="images/yoda_shred.jpg" alt="Yoda holding bass"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="images/darth_shred.jpg" alt="Darth Vader electric shred"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="images/darth_shred.jpg" alt="Darth Vader electric shred"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="images/chewy_backer.jpg" alt="Chewbacca on bass"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="images/chewy_backer.jpg" alt="Chewbacca on bass"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="images/Rockin_Yoda.jpg" alt="Yoda shredding"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="images/Rockin_Yoda.jpg" alt="Yoda shredding"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="images/ yoda_slappin_bass.jpg" alt="Yoda slappin da bass"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="images/ yoda_slappin_bass.jpg" alt="Yoda slappin da bass"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="images/millennium_solo.jpg" alt="Millennium solo shred"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="images/millennium_solo.jpg" alt="Millennium solo shred"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="images/Darth-Maul-Les-Paul01.jpg" alt="Darth Maul shred"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+        <div class="card">
+            <div class="front"><img src="images/Darth-Maul-Les-Paul01.jpg" alt="Darth Maul shred"></div>
+            <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
+        </div>
+    </div>
+    </div>
+</div>
+</body>
+</html>
