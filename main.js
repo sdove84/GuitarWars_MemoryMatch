@@ -38,6 +38,8 @@ function card_clicked() {
         first_card_clicked = this;
         console.log('first card clicked');
         //turns off first card click so you cant match same card
+        var src = $(first_card_clicked).find('img').attr('src');
+        cardInfo[src].onClick();
         return;
     }
 // Its the second card
@@ -46,12 +48,14 @@ function card_clicked() {
         console.log('second card clicked');
         attempts++;
         display_stats();
+        // cardInfo[cardIndex].on2ndClick();
         var first_card = $(first_card_clicked).find('img').attr('src');
         var second_card = $(second_card_clicked).find('img').attr('src');
 
 // compare the two cards
         //cards match
         if (first_card === second_card) {
+            // cardInfo[cardIndex].onMatch();
             match_counter++;
             display_stats();
             playDarthAxe();
@@ -73,6 +77,7 @@ function card_clicked() {
         else {
             //$('.card').off('click');
             board_clickable = false;
+            // cardInfo[cardIndex].onMismatch(secondCard);
             resetCardsAfterNoMatch();
         }
     }
@@ -145,3 +150,43 @@ function reset_button(){
 //if not show card back on both cards clicked: reset variables
 
 
+var cardInfo ={
+    'images/darth_axe_shred.jpg':{
+        name: 'darth1',
+        imgSrc: 'images/darth_axe_shred.jpg',
+        onClick: function(){
+            console.log('darth has been clicked');
+            var theme_song = new Audio('sounds/star-wars-theme-song.mp3');
+            theme_song.play();
+        },
+        on2ndClick: function(){
+            console.log('darth was the 2nd card clicked');
+        },
+        onMatch: function(){
+            console.log('darth was matched');
+        },
+        onMismatch: function(otherCard){
+            console.log('darth was mismatched');
+        }
+    },
+    'images/Rockin_Yoda.jpg': {
+            name: 'yoda',
+            imgSrc: 'images/Rockin_Yoda.jpg',
+            onClick: function () {
+                console.log('yoda has been clicked');
+                var theme_song = new Audio('http://www.waveevents.com/MyFilez/wavs/starwars/litesabr.wav');
+                theme_song.play();
+
+            },
+            on2ndClick: function () {
+                console.log('yoda was the 2nd card clicked');
+            },
+            onMatch: function () {
+                console.log('yoda was matched');
+            },
+            onMismatch: function () {
+                console.log('yoda was mismatched');
+            }
+    }
+}
+;
