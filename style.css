@@ -112,8 +112,8 @@ button:hover {
     position: relative;
     margin: 1%;
     overflow: hidden;
-    border-radius: 10px;
-    border: solid grey 1px;
+    /*border-radius: 10px;*/
+    /*border: solid grey 1px;*/
 
 }
 
