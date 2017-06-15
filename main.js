@@ -20,8 +20,8 @@ var board_clickable = true;
 
 $(document).ready(function () {
     $(".card").click(card_clicked);
-    $('.reset').click(reset_button);
-
+    $('#reset').click(reset_button);
+    $('#reset').hide();
 });
 //this is the first card clicked
 function card_clicked() {
@@ -79,8 +79,11 @@ function card_clicked() {
                 var theme_song = new Audio('sounds/star-wars-theme-song.mp3');
                 theme_song.play();
                 //theme_song.volume = .5;
-                $('#game-area').append($('<h1>').html("YOU WIN!!!").css("color", "white"));
-
+                $('#win').html("YOU WIN!!!");
+                $("#win").show();
+                $('#reset').show();
+                // $('#reset').addClass('blink_me');
+                run_blink();
             }
         }
         //cards don't match
@@ -145,54 +148,40 @@ function reset_button(){
     $('.back').show();
     $('.front').show();
     $('.card').click(card_clicked);
+    $("#win").html('');
+    $('#reset').hide();
+    // $('#reset').removeClass('blink_me');
     board_clickable = true;
-    var theme_song = new Audio('sounds/star-wars-theme-song.mp3');
-    theme_song.stop();
+    // var theme_song = new Audio('sounds/star-wars-theme-song.mp3');
+    // theme_song.stop();
     setTimeout(function(){
     var vaderComeBack = new Audio('sounds/swvader01.mp3');
     vaderComeBack.play();
     }, 1000);
-
-
-
 }
 
 
+// function run_blink() {
+//     (function blink() {
+//         $('.blink_me').fadeOut(500).fadeIn(500, blink);
+//     })();
+// }
+
 //todo add Win window, make cards randomize, and add animations*
-
-
-
-//create a click event
-
-
-//first card clicked is null
-//show first card clicked/ show card face, set first_card_clicked variable
-//click second card show
-// if second card is = to first card
-//if all cards match show to the user they have won
-//keep both card faces shown
-//if not show card back on both cards clicked: reset variables
-
 
 var cardInfo ={
     'images/darth_axe_shred.jpg':{
         name: 'darth1',
         imgSrc: 'images/darth_axe_shred.jpg',
         onClick: function(){
-            console.log('darth has been clicked');
             var theme_song = new Audio('http://www.worldsmithgames.com/webs/worldsmith/sounds/breathe.wav');
             theme_song.play();
         },
-        on2ndClick: function(){
-            console.log('darth was the 2nd card clicked');
-        },
         onMatch: function(){
-            console.log('darth was matched');
             var theme_song = new Audio('sounds/darthvader_taughtyouwell.wav');
             theme_song.play();
         },
-        onMismatch: function(otherCard){
-            console.log('darth was mismatched');
+        onMismatch: function(){
             var theme_song = new Audio('http://www.mediacollege.com/downloads/sound-effects/star-wars/darthvader/darthvader_failedme.wav');
             theme_song.play();
         }
@@ -201,21 +190,14 @@ var cardInfo ={
             name: 'trooper',
             imgSrc: 'images/storm_trooper_shred.jpg',
             onClick: function () {
-                console.log('yoda has been clicked');
                 var theme_song = new Audio('http://home1.swipnet.se/~w-52935/sounds/blaster.wav');
                 theme_song.play();
-
-            },
-            on2ndClick: function () {
-                console.log('yoda was the 2nd card clicked');
             },
             onMatch: function () {
-                console.log('yoda was matched');
                 var theme_song = new Audio('http://www.thesoundarchive.com/starwars/swsidious01.mp3');
                 theme_song.play();
             },
             onMismatch: function () {
-                console.log('yoda was mismatched');
                 var theme_song = new Audio('http://www.mediacollege.com/downloads/sound-effects/star-wars/c3po/c3po_yourfault.wav');
                 theme_song.play();
             }
@@ -224,21 +206,14 @@ var cardInfo ={
         name: 'yoda1',
         imgSrc: 'images/yoda_shred.jpg',
         onClick: function () {
-            console.log('yoda has been clicked');
             var theme_song = new Audio('http://www.thesoundarchive.com/starwars/R2D2-yeah.mp3');
             theme_song.play();
-
-        },
-        on2ndClick: function () {
-            console.log('yoda was the 2nd card clicked');
         },
         onMatch: function () {
-            console.log('yoda was matched');
             var theme_song = new Audio('http://www.mediacollege.com/downloads/sound-effects/star-wars/darthvader/darthvader_technological.wav');
             theme_song.play();
         },
         onMismatch: function () {
-            console.log('yoda was mismatched');
             var theme_song = new Audio('http://www.mediacollege.com/downloads/sound-effects/star-wars/yoda/yoda_doordonot.wav');
             theme_song.play();
         }
@@ -247,21 +222,14 @@ var cardInfo ={
         name: 'darth2',
         imgSrc: 'images/darth_shred.jpg',
         onClick: function () {
-            console.log('yoda has been clicked');
             var theme_song = new Audio('sounds/2 clash 2.wav');
             theme_song.play();
-
-        },
-        on2ndClick: function () {
-            console.log('yoda was the 2nd card clicked');
         },
         onMatch: function () {
-            console.log('yoda was matched');
             var theme_song = new Audio('http://www.thesoundarchive.com/starwars/forcestrong.mp3');
             theme_song.play();
         },
         onMismatch: function () {
-            console.log('yoda was mismatched');
             var theme_song = new Audio('http://www.mediacollege.com/downloads/sound-effects/star-wars/darthvader/darthvader_dontmakeme.wav');
             theme_song.play();
         }
@@ -270,21 +238,14 @@ var cardInfo ={
         name: 'chewy',
         imgSrc: 'images/chewy_backer.jpg',
         onClick: function () {
-            console.log('yoda has been clicked');
             var theme_song = new Audio('http://www.drodd.com/star-wars-soundboard/chew_roar2.mp3');
             theme_song.play();
-
-        },
-        on2ndClick: function () {
-            console.log('yoda was the 2nd card clicked');
         },
         onMatch: function () {
-            console.log('yoda was matched');
             var theme_song = new Audio('http://www.thesoundarchive.com/starwars/Chewie-chatting.mp3');
             theme_song.play();
         },
         onMismatch: function () {
-            console.log('yoda was mismatched');
             var theme_song = new Audio('http://www.mediacollege.com/downloads/sound-effects/star-wars/darthvader/darthvader_anger.wav');
             theme_song.play();
         }
@@ -293,21 +254,14 @@ var cardInfo ={
         name: 'yoda2',
         imgSrc: 'images/Rockin_Yoda.jpg',
         onClick: function () {
-            console.log('yoda has been clicked');
             var theme_song = new Audio('http://www.waveevents.com/MyFilez/wavs/starwars/litesabr.wav');
             theme_song.play();
-
-        },
-        on2ndClick: function () {
-            console.log('yoda was the 2nd card clicked');
         },
         onMatch: function () {
-            console.log('yoda was matched');
             var theme_song = new Audio('http://www.thesoundarchive.com/starwars/alwaystwo.mp3');
             theme_song.play();
         },
         onMismatch: function () {
-            console.log('yoda was mismatched');
             var theme_song = new Audio('http://www.mediacollege.com/downloads/sound-effects/star-wars/leia/leia_what.wav');
             theme_song.play();
         }
@@ -316,21 +270,14 @@ var cardInfo ={
         name: 'yoda3',
         imgSrc: 'images/ yoda_slappin_bass.jpg',
         onClick: function () {
-            console.log('yoda has been clicked');
             var theme_song = new Audio('sounds/lasrhit4.WAV');
             theme_song.play();
-
-        },
-        on2ndClick: function () {
-            console.log('yoda was the 2nd card clicked');
         },
         onMatch: function () {
-            console.log('yoda was matched');
             var theme_song = new Audio('http://www.thesoundarchive.com/starwars/return/900yearsold.mp3');
             theme_song.play();
         },
         onMismatch: function () {
-            console.log('yoda was mismatched');
             var theme_song = new Audio('http://www.thesoundarchive.com/starwars/dange-disturb.mp3');
             theme_song.play();
         }
@@ -339,21 +286,14 @@ var cardInfo ={
         name: 'solo',
         imgSrc: 'images/millennium_solo.jpg',
         onClick: function () {
-            console.log('yoda has been clicked');
             var theme_song = new Audio('sounds/Spin clash.wav');
             theme_song.play();
-
-        },
-        on2ndClick: function () {
-            console.log('yoda was the 2nd card clicked');
         },
         onMatch: function () {
-            console.log('yoda was matched');
             var theme_song = new Audio('http://www.mediacollege.com/downloads/sound-effects/star-wars/hansolo/hansolo_captain.wav');
             theme_song.play();
         },
         onMismatch: function () {
-            console.log('yoda was mismatched');
             var theme_song = new Audio('http://www.thesoundarchive.com/starwars/empire/laughfuzzball.mp3');
             theme_song.play();
         }
@@ -362,21 +302,14 @@ var cardInfo ={
         name: 'darth-maul',
         imgSrc: 'images/Darth-Maul-Les-Paul01.jpg',
         onClick: function () {
-            console.log('yoda has been clicked');
             var theme_song = new Audio('sounds/double bladed twirl.wav');
             theme_song.play();
-
-        },
-        on2ndClick: function () {
-            console.log('yoda was the 2nd card clicked');
         },
         onMatch: function () {
-            console.log('yoda was matched');
             var theme_song = new Audio('http://www.thesoundarchive.com/starwars/Revenge.mp3');
             theme_song.play();
         },
         onMismatch: function () {
-            console.log('yoda was mismatched');
             var theme_song = new Audio('http://www.thesoundarchive.com/starwars/swluke01.mp3');
             theme_song.play();
         }
