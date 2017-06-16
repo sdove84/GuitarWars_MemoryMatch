@@ -17,12 +17,45 @@ var games_played = 0;
 
 var board_clickable = true;
 
+var forceTheme_song = new Audio('sounds/04 The Force Theme.m4a');
+
+var mainTheme_song = new Audio('sounds/01 Main Theme.m4a');
 
 $(document).ready(function () {
     $(".card").click(card_clicked);
     $('#reset').click(reset_button);
     $('#reset').hide();
+    // songsForGame[src].onStartGame();
+    forceTheme_song.volume = .5;
+    forceTheme_song.play();
+    pauseMusicHandler();
+
 });
+
+
+function pauseMusicHandler(){
+    $('#music').on('click',pauseGameMusic);
+
+}
+
+function pauseGameMusic(){
+    forceTheme_song.pause();
+    playMusicHandler();
+}
+
+function playMusicHandler(){
+    $('#music').on('click',playGameMusic);
+}
+
+function playGameMusic(){
+    forceTheme_song.play();
+    pauseMusicHandler();
+}
+
+
+// function winning(){
+//     ion.sound.play("gameWin");
+// }
 //this is the first card clicked
 function card_clicked() {
     if (board_clickable != true){
@@ -76,14 +109,15 @@ function card_clicked() {
             cardInfo[src].onMatch();
 
             if (match_counter == total_possible_matches) {
-                var theme_song = new Audio('sounds/star-wars-theme-song.mp3');
-                theme_song.play();
+
+                mainTheme_song.play();
                 //theme_song.volume = .5;
                 $('#win').html("YOU WIN!!!");
                 $("#win").show();
                 $('#reset').show();
                 // $('#reset').addClass('blink_me');
-                run_blink();
+                // run_blink();
+                pauseGameMusic();
             }
         }
         //cards don't match
@@ -150,6 +184,8 @@ function reset_button(){
     $('.card').click(card_clicked);
     $("#win").html('');
     $('#reset').hide();
+    playGameMusic();
+    mainTheme_song.pause();
     // $('#reset').removeClass('blink_me');
     board_clickable = true;
     // var theme_song = new Audio('sounds/star-wars-theme-song.mp3');
@@ -169,9 +205,21 @@ function reset_button(){
 
 //todo add Win window, make cards randomize, and add animations*
 
+// var songsForGame = {
+//     'images/darth_axe_shred.jpg': {
+//         name: 'theForceSong',
+//         // imgSrc: 'images/darth_axe_shred.jpg',
+//         onStartGame: function () {
+//             var forceTheme_song = new Audio('sounds/04 The Force Theme.m4a');
+//             forceTheme_song.play();
+//         }
+//     }
+// }
+
 var cardInfo ={
     'images/darth_axe_shred.jpg':{
         name: 'darth1',
+        loop: true,
         imgSrc: 'images/darth_axe_shred.jpg',
         onClick: function(){
             var theme_song = new Audio('http://www.worldsmithgames.com/webs/worldsmith/sounds/breathe.wav');
@@ -226,7 +274,7 @@ var cardInfo ={
             theme_song.play();
         },
         onMatch: function () {
-            var theme_song = new Audio('http://www.thesoundarchive.com/starwars/forcestrong.mp3');
+            var theme_song = new Audio('sounds/Force is strong.mp3');
             theme_song.play();
         },
         onMismatch: function () {
@@ -246,7 +294,7 @@ var cardInfo ={
             theme_song.play();
         },
         onMismatch: function () {
-            var theme_song = new Audio('http://www.mediacollege.com/downloads/sound-effects/star-wars/darthvader/darthvader_anger.wav');
+            var theme_song = new Audio('sounds/Power of the dark side.mp3');
             theme_song.play();
         }
     },
