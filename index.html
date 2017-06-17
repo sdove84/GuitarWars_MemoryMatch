@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Memory Match</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="main.js"></script>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="main_container">
@@ -13,26 +14,30 @@
     <div class="stats_container">
         <h1>Stats:</h1>
         <div class="games_played">
-            <h4 class="label">Games played:</h4>
+            <h3 class="label">Games played:</h3>
             <div class="value"></div>
         </div>
 
         <div class="match_counter">
-            <h4 class="label">Matches:</h4>
+            <h3 class="label">Matches:</h3>
             <div class="value"></div>
         </div>
 
         <div class="attempts">
-            <h4 class="label">Attempts:</h4>
+            <h3 class="label">Attempts:</h3>
             <div class="value"></div>
         </div>
 
         <div class="accuracy">
-            <h4 class="label">Accuracy:</h4>
+            <h3 class="label">Accuracy:</h3>
             <div class="value"></div>
         </div>
         <br>
-        <button class="reset">Reset Game</button>
+        <button id="reset" class="btn btn-warning">Play Again</button>
+        <div id="music">
+            <div class="music_on"></div>
+            <div class="music_off"></div>
+        </div>
     </div>
     <div id="game-area">
         <div class="head_div">
@@ -40,6 +45,7 @@
                 <div class="title">
                     <!--<h1>Guitar Wars</h1>-->
                 </div>
+
                 <img class="game_logo" src="http://www.thevillains.com.au/images/tyu.jpg" alt="Game Logo">
                 <!--<nav>-->
                 <!--<ul>-->
@@ -49,8 +55,9 @@
                 <!--</nav>-->
             <!--</header>-->
         </div>
+        <div id="win"></div>
         <div class="card">
-            <div class="front"><img src="images/darth_axe_shred.jpg" alt="Darth Vader on the axe"><audio id="darthAxe" src="sounds/darthvader_taughtyouwell.wav"></audio></div>
+            <div class="front"><img src="images/darth_axe_shred.jpg" alt="Darth Vader on the axe"></div>
             <div class="back"><img src="images/starwars_cardback.jpg" alt="card back"></div>
         </div>
         <div class="card">
