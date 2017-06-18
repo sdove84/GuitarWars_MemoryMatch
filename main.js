@@ -22,6 +22,7 @@ var forceTheme_song = new Audio('sounds/04 The Force Theme.m4a');
 var mainTheme_song = new Audio('sounds/01 Main Theme.m4a');
 
 $(document).ready(function () {
+    // shuffle();
     $(".card").click(card_clicked);
     $('#reset').click(reset_button);
     $('#reset').hide();
@@ -32,6 +33,38 @@ $(document).ready(function () {
     pauseMusicHandler();
 
 });
+
+
+
+// function shuffle(){
+//     var images=["images/ yoda_slappin_bass.jpg","images/chewy_backer.jpg","images/Darth-Maul-Les-Paul01.jpg","images/darth_axe_shred.jpg",
+//         "images/darth_shred.jpg","images/millennium_solo.jpg","images/Rockin_Yoda.jpg","images/storm_trooper_shred.jpg","images/yoda_shred.jpg"];
+//
+//     images = images.concat(images);
+//
+//     //shuffle the array
+//     while(images.length) {
+//
+//         var index = Math.floor(Math.random() * images.length);
+//         var newCard=$('<div>',{class:'card'});
+//         var backCard=$('<div>',{class:'back'});
+//         var backImage=$('<img>',{src:'images/starwars_cardback.jpg'});
+//         var frontCard=$('<div>',{class:'front'});
+//         console.log("the image will be", images[index]);
+//         console.log("The index is ",index);
+//
+//         var frontImage=$('<img>',{src:images[index]});
+//
+//         images.splice(index,1);
+//
+//         $(backCard).append(backImage);
+//         $(frontCard).append(frontImage);
+//         $(newCard).append(frontCard);
+//         $("#game-area").append($(newCard));
+//
+//     } //end of while loop
+//     // $(".back").click(card_clicked);
+// } //end of function
 
 
 function pauseMusicHandler(){
@@ -110,6 +143,7 @@ function card_clicked() {
                 $('#reset').show();
                 pauseGameMusic();
                 mainTheme_song.currentTime = 0;
+                $('.music_on').show();
             }
         }
         //cards don't match

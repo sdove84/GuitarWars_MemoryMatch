@@ -26,6 +26,11 @@ body {
     width: 100vw;
 }
 
+body {
+    cursor: url('images/xwing.png'), auto;
+
+}
+
 header {
     color: yellow;
     height: 25%;
@@ -157,7 +162,8 @@ button:hover {
 }
 
 .card:hover {
-    cursor: pointer;
+    /*cursor: pointer;*/
+    cursor: url('images/blue_saber_left.png'), auto;
 }
 
 /*===========================================animation=======================================================*/
